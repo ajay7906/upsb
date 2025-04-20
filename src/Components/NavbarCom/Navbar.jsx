@@ -233,6 +233,323 @@
 
 
 
+// import React, { useState, useEffect } from 'react';
+// import { motion, AnimatePresence } from 'framer-motion';
+// import LogoImages from "./images/logoUPSB1.jpg";
+
+// const Navbar = () => {
+//   const [isOpen, setIsOpen] = useState(false);
+//   const [activeDropdown, setActiveDropdown] = useState(null);
+//   const [scrolled, setScrolled] = useState(false);
+
+//   // Handle scroll effect
+//   useEffect(() => {
+//     const handleScroll = () => {
+//       if (window.scrollY > 10) {
+//         setScrolled(true);
+//       } else {
+//         setScrolled(false);
+//       }
+//     };
+
+//     window.addEventListener('scroll', handleScroll);
+//     return () => window.removeEventListener('scroll', handleScroll);
+//   }, []);
+
+//   // Handle click outside to close dropdown
+//   useEffect(() => {
+//     const handleClickOutside = (event) => {
+//       if (activeDropdown && !event.target.closest('.dropdown-container')) {
+//         setActiveDropdown(null);
+//       }
+//     };
+
+//     document.addEventListener('click', handleClickOutside);
+//     return () => document.removeEventListener('click', handleClickOutside);
+//   }, [activeDropdown]);
+
+//   const toggleDropdown = (menu) => {
+//     setActiveDropdown(activeDropdown === menu ? null : menu);
+//   };
+
+//   // Close mobile menu when clicking a link
+//   const handleMobileLinkClick = () => {
+//     setIsOpen(false);
+//     setActiveDropdown(null);
+//   };
+
+//   // Navigation items
+//   const navItems = [
+//     { name: 'Home', path: '/' },
+//     { name: 'About', path: '/about' },
+//     {
+//       name: 'Services',
+//       dropdown: [
+//         { name: 'Custom Software Development', path: '/services/software-development' },
+//         { name: 'Social Media Management', path: '/services/social-media' },
+//         { name: 'CRM', path: '/services/crm' },
+//         { name: 'Cloud Solutions', path: '/services/cloud' },
+//         { name: 'Web Development', path: '/services/web-development' },
+//         { name: 'AI-Powered Tools', path: '/services/ai' }
+//       ]
+//     },
+//     {
+//       name: 'Products',
+//       dropdown: [
+//         { name: 'WhatsApp API', path: '/products/whatsapp-api' },
+//         { name: 'ERP Solutions', path: '/products/erp' },
+//         { name: 'E-Commerce Platforms', path: '/products/ecommerce' },
+//         { name: 'Cybersecurity Solutions', path: '/products/cybersecurity' },
+//         { name: 'Digital Marketing Tool', path: '/products/marketing' }
+//       ]
+//     },
+//     {
+//       name: 'Blog',
+//       dropdown: [
+//         { name: 'Educational Content', path: '/blog/educational' },
+//         { name: 'Regular Updates', path: '/blog/updates' },
+//         { name: 'SEO Benefits', path: '/blog/seo' }
+//       ]
+//     },
+//     { name: 'Careers', path: '/careers' }
+//   ];
+
+//   return (
+//     <nav 
+//       className={`fixed top-0 left-0 right-0 w-full z-50 transition-all duration-300 ${
+//         scrolled ? 'bg-white shadow-lg py-2' : 'bg-white/90 backdrop-blur-sm py-3'
+//       }`}
+//     >
+//       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+//         <div className="flex items-center justify-between h-16">
+//           {/* Logo Section */}
+//           <div className="flex-shrink-0 flex items-center">
+//             <a href="/" className="flex items-center space-x-2">
+//               <img 
+//                 src={LogoImages} 
+//                 alt="UPSB India" 
+//                 className={`object-contain rounded-full transition-all duration-300 ${
+//                   scrolled ? 'w-12 h-12' : 'w-16 h-16'
+//                 }`}
+//               />
+//               <span className="font-bold text-lg text-gray-800 hidden sm:inline-block">UPSB India</span>
+//             </a>
+//           </div>
+
+//           {/* Desktop Menu */}
+//           <div className="hidden md:flex items-center space-x-1 lg:space-x-4">
+//             {navItems.map((item, index) => (
+//               !item.dropdown ? (
+//                 <a 
+//                   key={index}
+//                   href={item.path} 
+//                   className="text-gray-700 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200"
+//                 >
+//                   {item.name}
+//                 </a>
+//               ) : (
+//                 <div key={index} className="relative dropdown-container">
+//                   <button
+//                     onClick={(e) => {
+//                       e.stopPropagation();
+//                       toggleDropdown(item.name);
+//                     }}
+//                     className="text-gray-700 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 flex items-center"
+//                   >
+//                     {item.name}
+//                     <svg 
+//                       className={`ml-1 h-4 w-4 transition-transform duration-200 ${activeDropdown === item.name ? 'transform rotate-180' : ''}`} 
+//                       fill="none" 
+//                       viewBox="0 0 24 24" 
+//                       stroke="currentColor"
+//                     >
+//                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+//                     </svg>
+//                   </button>
+//                   <AnimatePresence>
+//                     {activeDropdown === item.name && (
+//                       <motion.div
+//                         initial={{ opacity: 0, y: -5 }}
+//                         animate={{ opacity: 1, y: 0 }}
+//                         exit={{ opacity: 0, y: -5 }}
+//                         transition={{ duration: 0.2 }}
+//                         className="absolute left-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 overflow-hidden z-50"
+//                       >
+//                         <div className="py-1">
+//                           {item.dropdown.map((dropItem, dropIndex) => (
+//                             <a 
+//                               key={dropIndex}
+//                               href={dropItem.path} 
+//                               className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition-colors duration-150"
+//                             >
+//                               {dropItem.name}
+//                             </a>
+//                           ))}
+//                         </div>
+//                       </motion.div>
+//                     )}
+//                   </AnimatePresence>
+//                 </div>
+//               )
+//             ))}
+
+//             <a 
+//               href="/contact"
+//               className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-md text-sm font-medium transition-colors duration-200 shadow-md hover:shadow-lg ml-2"
+//             >
+//               Start a Project
+//             </a>
+//           </div>
+
+//           {/* Mobile Menu Button */}
+//           <div className="md:hidden">
+//             <button
+//               onClick={() => setIsOpen(!isOpen)}
+//               type="button"
+//               className="text-gray-700 hover:text-blue-600 focus:outline-none"
+//               aria-label="Toggle menu"
+//             >
+//               <svg
+//                 className="h-6 w-6"
+//                 fill="none"
+//                 viewBox="0 0 24 24"
+//                 stroke="currentColor"
+//               >
+//                 {isOpen ? (
+//                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+//                 ) : (
+//                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+//                 )}
+//               </svg>
+//             </button>
+//           </div>
+//         </div>
+//       </div>
+
+//       {/* Mobile Menu */}
+//       <AnimatePresence>
+//         {isOpen && (
+//           <motion.div
+//             initial={{ opacity: 0, height: 0 }}
+//             animate={{ opacity: 1, height: 'auto' }}
+//             exit={{ opacity: 0, height: 0 }}
+//             transition={{ duration: 0.3 }}
+//             className="md:hidden bg-white border-t"
+//           >
+//             <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 max-h-[80vh] overflow-y-auto">
+//               {navItems.map((item, index) => (
+//                 !item.dropdown ? (
+//                   <a 
+//                     key={index}
+//                     href={item.path} 
+//                     className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-blue-50"
+//                     onClick={handleMobileLinkClick}
+//                   >
+//                     {item.name}
+//                   </a>
+//                 ) : (
+//                   <div key={index} className="space-y-1">
+//                     <button
+//                       onClick={() => toggleDropdown(item.name)}
+//                       className="flex justify-between items-center w-full px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-blue-50"
+//                     >
+//                       <span>{item.name}</span>
+//                       <svg 
+//                         className={`h-5 w-5 transition-transform duration-200 ${activeDropdown === item.name ? 'transform rotate-180' : ''}`}
+//                         fill="none" 
+//                         viewBox="0 0 24 24" 
+//                         stroke="currentColor"
+//                       >
+//                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+//                       </svg>
+//                     </button>
+                    
+//                     <AnimatePresence>
+//                       {activeDropdown === item.name && (
+//                         <motion.div
+//                           initial={{ opacity: 0, height: 0 }}
+//                           animate={{ opacity: 1, height: 'auto' }}
+//                           exit={{ opacity: 0, height: 0 }}
+//                           className="pl-6 space-y-1 border-l-2 border-blue-100 ml-3"
+//                         >
+//                           {item.dropdown.map((dropItem, dropIndex) => (
+//                             <a 
+//                               key={dropIndex}
+//                               href={dropItem.path} 
+//                               className="block px-3 py-2 rounded-md text-sm font-medium text-gray-600 hover:text-blue-600 hover:bg-blue-50"
+//                               onClick={handleMobileLinkClick}
+//                             >
+//                               {dropItem.name}
+//                             </a>
+//                           ))}
+//                         </motion.div>
+//                       )}
+//                     </AnimatePresence>
+//                   </div>
+//                 )
+//               ))}
+              
+//               <div className="pt-4">
+//                 <a 
+//                   href="/contact"
+//                   className="block w-full text-center bg-blue-600 hover:bg-blue-700 text-white px-4 py-3 rounded-md font-medium transition-colors duration-200 shadow-md"
+//                   onClick={handleMobileLinkClick}
+//                 >
+//                   Start a Project
+//                 </a>
+//               </div>
+//             </div>
+//           </motion.div>
+//         )}
+//       </AnimatePresence>
+//     </nav>
+//   );
+// };
+
+// export default Navbar; 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import LogoImages from "./images/logoUPSB1.jpg";
@@ -306,7 +623,7 @@ const Navbar = () => {
     {
       name: 'Blog',
       dropdown: [
-        { name: 'Educational Content', path: '/blog/educational' },
+        { name: 'Educational Content', path: '/blog' },
         { name: 'Regular Updates', path: '/blog/updates' },
         { name: 'SEO Benefits', path: '/blog/seo' }
       ]
