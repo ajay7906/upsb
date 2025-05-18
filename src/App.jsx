@@ -16,7 +16,7 @@ function App() {
      <Router>
     <AuthProvider>
      
-        {/* <Navbar/> */}
+        <Navbar/>
         <Routes>
         <Route path="/" element={<Hero />} />
         <Route path="/about" element={<AboutPage />} />
@@ -25,7 +25,7 @@ function App() {
         <Route path="/blog" element={<BlogPage/>} />
         <Route  path='/login' element={<Login/>}/>
         </Routes>
-        {/* <Footer/> */}
+        <Footer/>
        
       </AuthProvider>   
       </Router>                     
