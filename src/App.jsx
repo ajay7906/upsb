@@ -9,6 +9,7 @@ import CareerPage from './Pages/HeroSections/career/CareerPage';
 import BlogPage from './Components/blog/BlogPage';
 import Login from './Pages/login/Login';
 import { AuthProvider } from './context/AuthContext';
+import AdminDashboard from './admin/AdminDashboards';
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
         <Route path="/careers" element={<CareerPage/>} />
         <Route path="/blog" element={<BlogPage/>} />
         <Route  path='/login' element={<Login/>}/>
+        <Route path='/admin' element={<AdminDashboard/>}/>
         </Routes>
         <Footer/>
        
