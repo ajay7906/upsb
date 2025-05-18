@@ -1082,8 +1082,8 @@ const Navbar = () => {
       name: 'Blog',
       dropdown: [
         { name: 'Educational Content', path: '/blog' },
-        { name: 'Industry Updates', path: '/blog/updates' },
-        { name: 'SEO Insights', path: '/blog/seo' }
+        { name: 'Industry Updates', path: '/blog/industoryupdates' },
+        // { name: 'SEO Insights', path: '/blog/seo' }
       ]
     },
     { name: 'Careers', path: '/careers' }

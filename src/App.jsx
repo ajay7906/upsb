@@ -10,6 +10,7 @@ import BlogPage from './Components/blog/BlogPage';
 import Login from './Pages/login/Login';
 import { AuthProvider } from './context/AuthContext';
 import AdminDashboard from './admin/AdminDashboards';
+import IndutoryUpdate from './Pages/trend/IndustoryUpdate';
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
         <Route path="/blog" element={<BlogPage/>} />
         <Route  path='/login' element={<Login/>}/>
         <Route path='/admin' element={<AdminDashboard/>}/>
+        <Route path='/blog/industoryupdates' element={<IndutoryUpdate/>}/>
         </Routes>
         <Footer/>
        
