@@ -1068,16 +1068,16 @@ const Navbar = () => {
         { name: 'AI-Powered Tools', path: '/services/ai' }
       ]
     },
-    {
-      name: 'Products',
-      dropdown: [
-        { name: 'WhatsApp API', path: '/products/whatsapp-api' },
-        { name: 'ERP Solutions', path: '/products/erp' },
-        { name: 'E-Commerce Platforms', path: '/products/ecommerce' },
-        { name: 'Cybersecurity Solutions', path: '/products/cybersecurity' },
-        { name: 'Digital Marketing Tool', path: '/products/marketing' }
-      ]
-    },
+    // {
+    //   name: 'Products',
+    //   dropdown: [
+    //     { name: 'WhatsApp API', path: '/products/whatsapp-api' },
+    //     { name: 'ERP Solutions', path: '/products/erp' },
+    //     { name: 'E-Commerce Platforms', path: '/products/ecommerce' },
+    //     { name: 'Cybersecurity Solutions', path: '/products/cybersecurity' },
+    //     { name: 'Digital Marketing Tool', path: '/products/marketing' }
+    //   ]
+    // },
     {
       name: 'Blog',
       dropdown: [
