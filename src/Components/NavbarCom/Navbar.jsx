@@ -1060,7 +1060,7 @@ const Navbar = () => {
     {
       name: 'Services',
       dropdown: [
-        { name: 'Custom Software Development', path: '/services/software-development' },
+        { name: 'Custom Software Development', path: '/services/custom-software-development' },
         { name: 'Social Media Management', path: '/services/social-media' },
         { name: 'CRM Solutions', path: '/services/crm' },
         { name: 'Cloud Solutions', path: '/services/cloud' },

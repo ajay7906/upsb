@@ -11,6 +11,11 @@ import Login from './Pages/login/Login';
 import { AuthProvider } from './context/AuthContext';
 import AdminDashboard from './admin/AdminDashboards';
 import IndutoryUpdate from './Pages/trend/IndustoryUpdate';
+import CustomSoftwareDevelopment from './Components/services/CustomeSoftwareDevelopment';
+import CRMERPSolutions from './Components/services/CRMERPSolutions';
+import SocialMediaSolutions from './Components/services/SocialMediaSolutions';
+import CloudSolutions from './Components/services/CloudSolutions';
+import AIPoweredTools from './Components/services/AIPowerTools';
 
 function App() {
   return (
@@ -28,6 +33,11 @@ function App() {
         <Route  path='/login' element={<Login/>}/>
         <Route path='/admin' element={<AdminDashboard/>}/>
         <Route path='/blog/industoryupdates' element={<IndutoryUpdate/>}/>
+        <Route path='/services/custom-software-development' element={<CustomSoftwareDevelopment/>}/>
+        <Route path='/services/crm' element={<CRMERPSolutions/>}/>
+        <Route path='/services/social-media' element={<SocialMediaSolutions/>}/>
+        <Route path='/services/cloud' element={<CloudSolutions/>}/>
+        <Route path='/services/ai' element={<AIPoweredTools/>}/>
         </Routes>
         <Footer/>
        
