@@ -76,3 +76,8 @@ export const logout = (req, res) => {
     message: 'Logged out successfully'
   });
 };
+
+
+export const sendMail = async (req, res) => {
+  
+}

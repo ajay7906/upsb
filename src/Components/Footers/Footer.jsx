@@ -1,5 +1,6 @@
 import React from 'react';
 import { Phone,Mail, ChevronRight } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const Footer = () => {
   return (
@@ -56,58 +57,25 @@ const Footer = () => {
             <ul className="space-y-3">
               <li className="flex items-center">
                 <ChevronRight size={18} className="text-blue-500" />
-                <a href="#" className="hover:text-blue-400 transition-colors">Service</a>
+                <Link to="/services/custom-software-development" className="hover:text-blue-400 transition-colors">Service</Link>
               </li>
               <li className="flex items-center">
                 <ChevronRight size={18} className="text-blue-500" />
-                <a href="#" className="hover:text-blue-400 transition-colors">Careers</a>
+                <Link to="/careers" className="hover:text-blue-400 transition-colors">Careers</Link>
               </li>
               <li className="flex items-center">
                 <ChevronRight size={18} className="text-blue-500" />
-                <a href="#" className="hover:text-blue-400 transition-colors">Contact Us</a>
+                <Link to="/contact" className="hover:text-blue-400 transition-colors">Contact Us</Link>
               </li>
               <li className="flex items-center">
                 <ChevronRight size={18} className="text-blue-500" />
-                <a href="#" className="hover:text-blue-400 transition-colors">About Us</a>
+                <Link to="/about" className="hover:text-blue-400 transition-colors">About Us</Link>
               </li>
             </ul>
           </div>
           
           {/* Our Services */}
-          <div>
-            <h3 className="text-xl font-bold mb-4 text-amber-100">Our Services</h3>
-            <ul className="space-y-3">
-              <li className="flex items-center">
-                <ChevronRight size={18} className="text-blue-500" />
-                <a href="#" className="hover:text-blue-400 transition-colors">UI/UX Design</a>
-              </li>
-              <li className="flex items-center">
-                <ChevronRight size={18} className="text-blue-500" />
-                <a href="#" className="hover:text-blue-400 transition-colors">Cyber Security</a>
-              </li>
-              <li className="flex items-center">
-                <ChevronRight size={18} className="text-blue-500" />
-                <a href="#" className="hover:text-blue-400 transition-colors">Website Development</a>
-              </li>
-              <li className="flex items-center">
-                <ChevronRight size={18} className="text-blue-500" />
-                <a href="#" className="hover:text-blue-400 transition-colors">eCommerce Development</a>
-              </li>
-              <li className="flex items-center">
-                <ChevronRight size={18} className="text-blue-500" />
-                <a href="#" className="hover:text-blue-400 transition-colors">Mobile App Development</a>
-              </li>
-              <li className="flex items-center">
-                <ChevronRight size={18} className="text-blue-500" />
-                <a href="#" className="hover:text-blue-400 transition-colors">Custom CRM Development</a>
-              </li>
-              <li className="flex items-center">
-                <ChevronRight size={18} className="text-blue-500" />
-                <a href="#" className="hover:text-blue-400 transition-colors">API Development</a>
-              </li>
-            </ul>
-          </div>
-          
+         
           {/* Follow Us */}
           <div>
             <h3 className="text-xl font-bold mb-4 text-amber-100">Follow Us</h3>

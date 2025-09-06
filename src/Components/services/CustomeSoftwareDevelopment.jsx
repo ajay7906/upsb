@@ -9,38 +9,86 @@ import {
   Monitor, 
   Smartphone, 
   Server, 
-  Terminal
+  Terminal,
+  Zap,
+  Users,
+  Shield,
+  Clock
 } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const CustomSoftwareDevelopment = () => {
   return (
-    <div className="bg-gray-50">
-      {/* Hero Section */}
-      <header className="bg-gradient-to-r from-indigo-600 to-purple-700 text-white">
-        <div className="container mx-auto px-6 py-24 max-w-6xl">
-          <div className="flex flex-col md:flex-row gap-12 items-center">
+    <div className="bg-white">
+      {/* Enhanced Hero Section */}
+      <header className="relative bg-gradient-to-br from-indigo-900 via-indigo-700 to-purple-800 text-white overflow-hidden">
+        <div className="absolute inset-0 bg-black/20 z-0"></div>
+        <div className="absolute top-0 right-0 -mr-40 -mt-40 w-80 h-80 bg-white opacity-10 rounded-full"></div>
+        <div className="absolute bottom-0 left-0 -ml-40 -mb-40 w-80 h-80 bg-purple-500 opacity-10 rounded-full"></div>
+        
+        <div className="container mx-auto px-6 py-28 max-w-6xl relative z-10">
+          <div className="flex flex-col md:flex-row gap-16 items-center">
             <div className="md:w-1/2">
-              <div className="inline-block bg-white bg-opacity-20 px-3 py-1 rounded-full text-sm font-medium mb-6">
+              <div className="inline-flex items-center bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full text-sm font-medium mb-6 border border-white/20">
+                <Zap className="h-4 w-4 mr-2" />
                 Custom Software Solutions
               </div>
-              <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight">
-                Bespoke Software <br />Built for Your Success
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
+                Bespoke Software <br />Built for Your <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-400">Success</span>
               </h1>
-              <p className="text-xl md:text-2xl opacity-90 mb-8 leading-relaxed">
+              <p className="text-lg md:text-xl opacity-90 mb-8 leading-relaxed">
                 We craft tailored software solutions that address your unique business challenges and drive measurable results.
               </p>
               <div className="flex flex-wrap gap-4">
-                <button className="bg-white text-indigo-700 hover:bg-opacity-90 px-6 py-3 rounded-lg font-medium transition duration-300 shadow-lg">
+                {/* <button className="bg-white text-indigo-700 hover:bg-gray-100 px-8 py-4 rounded-lg font-semibold transition duration-300 shadow-lg hover:shadow-xl flex items-center">
                   Get a Quote
+                  <ArrowRight className="ml-2 h-5 w-5" />
+                </button> */}
+                <button className="bg-transparent border-2 border-white text-white hover:bg-white/10 px-8 py-4 rounded-lg font-semibold transition duration-300 flex items-center">
+                  <Link to="/contact">Contact Us</Link>
+                  <MessageSquare className="ml-2 h-5 w-5" />
                 </button>
-                <button className="bg-transparent border-2 border-white hover:bg-white hover:bg-opacity-10 px-6 py-3 rounded-lg font-medium transition duration-300">
-                  Contact Us
-                </button>
+              </div>
+              
+              <div className="flex flex-wrap gap-6 mt-12">
+                <div className="flex items-center">
+                  <Users className="h-5 w-5 mr-2 text-cyan-400" />
+                  <span className="text-sm">Client-Centric Approach</span>
+                </div>
+                <div className="flex items-center">
+                  <Shield className="h-5 w-5 mr-2 text-cyan-400" />
+                  <span className="text-sm">Enterprise Grade Security</span>
+                </div>
+                <div className="flex items-center">
+                  <Clock className="h-5 w-5 mr-2 text-cyan-400" />
+                  <span className="text-sm">On-Time Delivery</span>
+                </div>
               </div>
             </div>
             <div className="md:w-1/2">
-              <div className="bg-white bg-opacity-10 p-4 rounded-xl shadow-2xl">
-                <img src="/api/placeholder/600/450" alt="Custom Software Development" className="rounded-lg w-full" />
+              <div className="relative">
+                <div className="absolute -inset-5">
+                  <div className="w-full h-full mx-auto rotate-6 opacity-30 bg-gradient-to-r from-cyan-400 to-blue-400 blur-lg"></div>
+                </div>
+                <div className="relative bg-white/5 backdrop-blur-md p-6 rounded-2xl shadow-2xl border border-white/10">
+                  <div className="bg-gradient-to-br from-indigo-500 to-purple-600 p-1 rounded-xl">
+                    <div className="bg-gray-900 rounded-lg overflow-hidden">
+                      <div className="bg-gray-800 px-4 py-3 flex gap-2">
+                        <div className="w-3 h-3 rounded-full bg-red-500"></div>
+                        <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
+                        <div className="w-3 h-3 rounded-full bg-green-500"></div>
+                      </div>
+                      <div className="p-4 text-white font-mono text-sm">
+                        <div className="text-cyan-400">// Custom software solutions</div>
+                        <div className="text-cyan-400">// Tailored to your needs</div>
+                        <div className="my-2"></div>
+                        <div><span className="text-purple-400">function</span> <span className="text-yellow-300">transformBusiness</span>() {'{'}</div>
+                        <div className="ml-4"><span className="text-green-400">return</span> <span className="text-blue-300">success</span>;</div>
+                        <div>{'}'}</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -48,10 +96,12 @@ const CustomSoftwareDevelopment = () => {
       </header>
 
       {/* Service Overview Section */}
-      <section className="py-20 px-6">
+      <section className="py-20 px-6 relative">
+        <div className="absolute top-0 left-0 right-0 h-1/2 bg-indigo-50 -z-10"></div>
         <div className="container mx-auto max-w-6xl">
           <div className="text-center mb-16">
-            <div className="inline-block bg-indigo-100 text-indigo-700 px-4 py-1 rounded-full text-sm font-medium mb-4">
+            <div className="inline-flex items-center bg-indigo-100 text-indigo-700 px-4 py-2 rounded-full text-sm font-medium mb-4">
+              <Zap className="h-4 w-4 mr-2" />
               Why Custom Software?
             </div>
             <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-6">
@@ -64,27 +114,38 @@ const CustomSoftwareDevelopment = () => {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {[
               {
-                icon: <Monitor className="h-8 w-8 text-indigo-600" />,
+                icon: <Monitor className="h-10 w-10 text-indigo-600" />,
                 title: "Web Applications",
-                description: "Robust and responsive web applications built to enhance user experience and streamline operations."
+                description: "Robust and responsive web applications built to enhance user experience and streamline operations.",
+                features: ["Progressive Web Apps", "SPA/MPA Architecture", "Cloud Integration"]
               },
               {
-                icon: <Smartphone className="h-8 w-8 text-indigo-600" />,
+                icon: <Smartphone className="h-10 w-10 text-indigo-600" />,
                 title: "Mobile Apps",
-                description: "Native and cross-platform mobile applications designed for seamless performance across devices."
+                description: "Native and cross-platform mobile applications designed for seamless performance across devices.",
+                features: ["iOS & Android", "Cross-Platform", "Offline Capabilities"]
               },
               {
-                icon: <Server className="h-8 w-8 text-indigo-600" />,
+                icon: <Server className="h-10 w-10 text-indigo-600" />,
                 title: "Enterprise Software",
-                description: "Comprehensive software solutions to optimize complex business processes and boost productivity."
+                description: "Comprehensive software solutions to optimize complex business processes and boost productivity.",
+                features: ["ERP Systems", "CRM Solutions", "Workflow Automation"]
               }
             ].map((item, index) => (
-              <div key={index} className="bg-white rounded-xl p-8 shadow-sm hover:shadow-md transition-shadow">
-                <div className="bg-indigo-50 p-4 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+              <div key={index} className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow border border-gray-100">
+                <div className="bg-indigo-50 p-4 rounded-2xl w-16 h-16 flex items-center justify-center mx-auto mb-6">
                   {item.icon}
                 </div>
-                <h3 className="text-xl font-bold text-gray-800 mb-4">{item.title}</h3>
-                <p className="text-gray-600">{item.description}</p>
+                <h3 className="text-xl font-bold text-gray-800 mb-4 text-center">{item.title}</h3>
+                <p className="text-gray-600 mb-6 text-center">{item.description}</p>
+                <ul className="space-y-2">
+                  {item.features.map((feature, i) => (
+                    <li key={i} className="flex items-center text-sm text-gray-500">
+                      <CheckCircle className="h-4 w-4 text-indigo-500 mr-2" />
+                      {feature}
+                    </li>
+                  ))}
+                </ul>
               </div>
             ))}
           </div>
@@ -92,10 +153,11 @@ const CustomSoftwareDevelopment = () => {
       </section>
 
       {/* Benefits Section */}
-      <section className="py-20 px-6 bg-white">
+      <section className="py-20 px-6 bg-gradient-to-br from-gray-50 to-indigo-50">
         <div className="container mx-auto max-w-6xl">
           <div className="text-center mb-16">
-            <div className="inline-block bg-indigo-100 text-indigo-700 px-4 py-1 rounded-full text-sm font-medium mb-4">
+            <div className="inline-flex items-center bg-indigo-100 text-indigo-700 px-4 py-2 rounded-full text-sm font-medium mb-4">
+              <BarChart className="h-4 w-4 mr-2" />
               Benefits
             </div>
             <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-6">
@@ -128,13 +190,15 @@ const CustomSoftwareDevelopment = () => {
                 description: "Continuous maintenance and updates to ensure your software remains secure and up-to-date."
               }
             ].map((benefit, index) => (
-              <div key={index} className="flex items-start gap-4">
-                <div className="bg-indigo-100 p-3 rounded-md">
-                  {benefit.icon}
-                </div>
-                <div>
-                  <h3 className="font-bold text-gray-800 mb-2">{benefit.title}</h3>
-                  <p className="text-gray-600">{benefit.description}</p>
+              <div key={index} className="bg-white p-6 rounded-2xl shadow-md hover:shadow-lg transition-shadow">
+                <div className="flex items-start gap-4">
+                  <div className="bg-indigo-100 p-3 rounded-xl">
+                    {benefit.icon}
+                  </div>
+                  <div>
+                    <h3 className="font-bold text-gray-800 mb-2 text-lg">{benefit.title}</h3>
+                    <p className="text-gray-600">{benefit.description}</p>
+                  </div>
                 </div>
               </div>
             ))}
@@ -143,10 +207,11 @@ const CustomSoftwareDevelopment = () => {
       </section>
 
       {/* Development Process Section */}
-      <section className="py-20 px-6 bg-gray-50">
+      <section className="py-20 px-6 bg-white">
         <div className="container mx-auto max-w-6xl">
           <div className="text-center mb-16">
-            <div className="inline-block bg-indigo-100 text-indigo-700 px-4 py-1 rounded-full text-sm font-medium mb-4">
+            <div className="inline-flex items-center bg-indigo-100 text-indigo-700 px-4 py-2 rounded-full text-sm font-medium mb-4">
+              <Code className="h-4 w-4 mr-2" />
               Our Process
             </div>
             <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-6">
@@ -156,53 +221,57 @@ const CustomSoftwareDevelopment = () => {
               We follow a structured yet flexible approach to ensure your software project is delivered on time, within budget, and to the highest standards.
             </p>
           </div>
-          <div className="relative">
-            <div className="absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-indigo-100"></div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
               {
-                step: "Discovery",
+                step: "01",
+                title: "Discovery",
                 description: "We analyze your requirements, business goals, and technical needs to define the project scope.",
                 icon: <MessageSquare className="h-8 w-8 text-white" />
               },
               {
-                step: "Design",
+                step: "02",
+                title: "Design",
                 description: "Crafting intuitive UI/UX designs and technical architecture to ensure a seamless user experience.",
                 icon: <Code className="h-8 w-8 text-white" />
               },
               {
-                step: "Development",
+                step: "03",
+                title: "Development",
                 description: "Building robust, scalable, and secure software using agile methodologies and best practices.",
                 icon: <Terminal className="h-8 w-8 text-white" />
               },
               {
-                step: "Testing & QA",
+                step: "04",
+                title: "Testing & QA",
                 description: "Rigorous testing to ensure functionality, performance, and security meet the highest standards.",
                 icon: <CheckCircle className="h-8 w-8 text-white" />
               },
               {
-                step: "Deployment",
+                step: "05",
+                title: "Deployment",
                 description: "Seamless deployment to your environment with minimal disruption to your operations.",
                 icon: <Server className="h-8 w-8 text-white" />
               },
               {
-                step: "Support & Maintenance",
+                step: "06",
+                title: "Support & Maintenance",
                 description: "Ongoing support to keep your software running smoothly and up-to-date.",
                 icon: <Monitor className="h-8 w-8 text-white" />
               }
             ].map((step, index) => (
-              <div key={index} className={`flex flex-col ${index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'} items-center mb-16`}>
-                <div className="md:w-1/2 mb-8 md:mb-0 md:px-12">
-                  <div className={`${index % 2 === 0 ? 'md:text-right' : 'md:text-left'}`}>
-                    <div className="text-indigo-600 font-bold text-xl mb-2">{step.step}</div>
-                    <p className="text-gray-600">{step.description}</p>
+              <div key={index} className="bg-gradient-to-br from-indigo-50 to-white p-6 rounded-2xl shadow-md border border-indigo-100 hover:shadow-lg transition-shadow">
+                <div className="flex items-center mb-4">
+                  <div className="bg-indigo-600 text-white font-bold text-lg w-10 h-10 rounded-full flex items-center justify-center mr-4">
+                    {step.step}
                   </div>
+                  <h3 className="text-xl font-bold text-gray-800">{step.title}</h3>
                 </div>
-                <div className="relative flex items-center justify-center">
-                  <div className="bg-indigo-600 p-4 rounded-full z-10">
-                    {step.icon}
-                  </div>
+                <p className="text-gray-600 mb-4">{step.description}</p>
+                <div className="bg-indigo-600 p-3 rounded-xl w-12 h-12 flex items-center justify-center">
+                  {step.icon}
                 </div>
-                <div className="md:w-1/2 md:px-12"></div>
               </div>
             ))}
           </div>
@@ -210,36 +279,37 @@ const CustomSoftwareDevelopment = () => {
       </section>
 
       {/* Technologies Section */}
-      <section className="py-20 px-6 bg-white">
+      <section className="py-20 px-6 bg-gradient-to-br from-indigo-900 to-purple-900 text-white">
         <div className="container mx-auto max-w-6xl">
           <div className="text-center mb-16">
-            <div className="inline-block bg-indigo-100 text-indigo-700 px-4 py-1 rounded-full text-sm font-medium mb-4">
+            <div className="inline-flex items-center bg-white/20 backdrop-blur-sm px-4 py-2 rounded-full text-sm font-medium mb-4 border border-white/20">
+              <Terminal className="h-4 w-4 mr-2" />
               Technologies We Use
             </div>
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-6">
+            <h2 className="text-3xl md:text-4xl font-bold mb-6">
               Cutting-Edge Tools for Superior Software
             </h2>
-            <p className="text-gray-600 text-lg max-w-3xl mx-auto">
+            <p className="text-indigo-200 text-lg max-w-3xl mx-auto">
               We leverage the latest technologies to build robust, scalable, and future-proof software solutions.
             </p>
           </div>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
             {[
-              { name: "React", category: "Frontend" },
-              { name: "Angular", category: "Frontend" },
-              { name: "Vue.js", category: "Frontend" },
-              { name: "Node.js", category: "Backend" },
-              { name: ".NET Core", category: "Backend" },
-              { name: "Python", category: "Backend" },
-              { name: "Java", category: "Backend" },
-              { name: "MongoDB", category: "Database" }
+              { name: "React", category: "Frontend", color: "bg-blue-500/10" },
+              { name: "Angular", category: "Frontend", color: "bg-red-500/10" },
+              { name: "Vue.js", category: "Frontend", color: "bg-green-500/10" },
+              { name: "Node.js", category: "Backend", color: "bg-green-600/10" },
+              { name: ".NET Core", category: "Backend", color: "bg-purple-500/10" },
+              { name: "Python", category: "Backend", color: "bg-yellow-500/10" },
+              { name: "Java", category: "Backend", color: "bg-red-600/10" },
+              { name: "MongoDB", category: "Database", color: "bg-green-700/10" }
             ].map((tech, index) => (
-              <div key={index} className="bg-gray-50 rounded-lg p-6 shadow-sm hover:shadow-md transition-shadow text-center">
-                <div className="bg-indigo-50 p-4 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
-                  <Terminal className="h-8 w-8 text-indigo-600" />
+              <div key={index} className={`bg-white/5 backdrop-blur-sm rounded-xl p-6 shadow-md hover:shadow-lg transition-shadow border border-white/10 ${tech.color}`}>
+                <div className="bg-white/10 p-4 rounded-xl w-16 h-16 flex items-center justify-center mx-auto mb-4">
+                  <Terminal className="h-8 w-8 text-white" />
                 </div>
-                <h3 className="font-bold text-gray-800 mb-1">{tech.name}</h3>
-                <p className="text-sm text-gray-500">{tech.category}</p>
+                <h3 className="font-bold text-lg mb-1 text-center">{tech.name}</h3>
+                <p className="text-sm text-indigo-200 text-center">{tech.category}</p>
               </div>
             ))}
           </div>
@@ -247,10 +317,11 @@ const CustomSoftwareDevelopment = () => {
       </section>
 
       {/* Case Studies Section */}
-      <section className="py-20 px-6 bg-indigo-50">
+      <section className="py-20 px-6 bg-white">
         <div className="container mx-auto max-w-6xl">
           <div className="text-center mb-16">
-            <div className="inline-block bg-indigo-100 text-indigo-700 px-4 py-1 rounded-full text-sm font-medium mb-4">
+            <div className="inline-flex items-center bg-indigo-100 text-indigo-700 px-4 py-2 rounded-full text-sm font-medium mb-4">
+              <BarChart className="h-4 w-4 mr-2" />
               Success Stories
             </div>
             <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-6">
@@ -268,7 +339,7 @@ const CustomSoftwareDevelopment = () => {
                 challenge: "Modernize legacy banking systems for digital channels",
                 solution: "Custom API-driven web application with real-time transaction processing",
                 result: "68% reduction in transaction processing time, 99.99% uptime",
-                image: "/api/placeholder/600/400"
+                color: "bg-blue-500"
               },
               {
                 title: "Retail",
@@ -276,57 +347,52 @@ const CustomSoftwareDevelopment = () => {
                 challenge: "Create a unified platform for online and in-store sales",
                 solution: "Custom e-commerce platform with real-time inventory sync",
                 result: "32% increase in online sales, 45% reduction in cart abandonment",
-                image: "/api/placeholder/600/400"
+                color: "bg-purple-500"
               }
             ].map((study, index) => (
-              <div key={index} className="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow group">
-                <div className="flex flex-col md:flex-row">
-                  <div className="md:w-2/5">
-                    <img src={study.image} alt={study.title} className="w-full h-full object-cover" />
-                  </div>
-                  <div className="md:w-3/5 p-8">
-                    <span className="inline-block bg-indigo-100 text-indigo-700 px-2 py-1 rounded-md text-sm font-medium mb-2">
-                      {study.title}
-                    </span>
-                    <h3 className="text-xl font-bold text-gray-800 mb-2">{study.company}</h3>
-                    <div className="space-y-3 text-gray-600 mb-4">
-                      <div className="flex items-start">
-                        <div className="bg-gray-200 p-1 rounded mr-3 mt-1">
-                          <MessageSquare className="h-4 w-4 text-gray-500" />
-                        </div>
-                        <div>
-                          <span className="font-medium text-gray-700">Challenge:</span> {study.challenge}
-                        </div>
+              <div key={index} className="bg-gradient-to-br from-gray-50 to-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow group border border-gray-100">
+                <div className="p-8">
+                  <span className="inline-block bg-indigo-100 text-indigo-700 px-3 py-1 rounded-md text-sm font-medium mb-4">
+                    {study.title}
+                  </span>
+                  <h3 className="text-2xl font-bold text-gray-800 mb-4">{study.company}</h3>
+                  <div className="space-y-4 text-gray-600 mb-6">
+                    <div className="flex items-start">
+                      <div className="bg-gray-200 p-2 rounded-lg mr-4 mt-1">
+                        <MessageSquare className="h-5 w-5 text-gray-600" />
                       </div>
-                      <div className="flex items-start">
-                        <div className="bg-indigo-100 p-1 rounded mr-3 mt-1">
-                          <CheckCircle className="h-4 w-4 text-indigo-600" />
-                        </div>
-                        <div>
-                          <span className="font-medium text-gray-700">Solution:</span> {study.solution}
-                        </div>
-                      </div>
-                      <div className="flex items-start">
-                        <div className="bg-green-100 p-1 rounded mr-3 mt-1">
-                          <BarChart className="h-4 w-4 text-green-600" />
-                        </div>
-                        <div>
-                          <span className="font-medium text-gray-700">Result:</span> {study.result}
-                        </div>
+                      <div>
+                        <span className="font-semibold text-gray-700">Challenge:</span> {study.challenge}
                       </div>
                     </div>
-                    <button className="text-indigo-600 font-medium hover:text-indigo-800 transition-colors flex items-center">
-                      Read full case study
-                      <ArrowRight className="ml-2 h-4 w-4" />
-                    </button>
+                    <div className="flex items-start">
+                      <div className="bg-indigo-100 p-2 rounded-lg mr-4 mt-1">
+                        <CheckCircle className="h-5 w-5 text-indigo-600" />
+                      </div>
+                      <div>
+                        <span className="font-semibold text-gray-700">Solution:</span> {study.solution}
+                      </div>
+                    </div>
+                    <div className="flex items-start">
+                      <div className="bg-green-100 p-2 rounded-lg mr-4 mt-1">
+                        <BarChart className="h-5 w-5 text-green-600" />
+                      </div>
+                      <div>
+                        <span className="font-semibold text-gray-700">Result:</span> {study.result}
+                      </div>
+                    </div>
                   </div>
+                  <button className="text-indigo-600 font-semibold hover:text-indigo-800 transition-colors flex items-center group-hover:translate-x-2 transition-transform">
+                    Read full case study
+                    <ArrowRight className="ml-2 h-5 w-5" />
+                  </button>
                 </div>
               </div>
             ))}
           </div>
           <div className="flex justify-center mt-12">
-            <button className="flex items-center gap-2 bg-indigo-600 hover:bg-indigo-700 text-white py-3 px-6 rounded-lg transition-colors shadow-md">
-              View All Case Studies
+            <button className="flex items-center gap-2 bg-indigo-600 hover:bg-indigo-700 text-white py-3 px-6 rounded-lg transition-colors shadow-md hover:shadow-lg font-semibold">
+              <Link to="/services/custom-software-development">View All Case Studies</Link>
               <ArrowRight className="h-5 w-5" />
             </button>
           </div>
@@ -334,10 +400,11 @@ const CustomSoftwareDevelopment = () => {
       </section>
 
       {/* Testimonials Section */}
-      <section className="py-20 px-6 bg-white">
+      <section className="py-20 px-6 bg-gradient-to-br from-indigo-50 to-gray-100">
         <div className="container mx-auto max-w-6xl">
           <div className="text-center mb-16">
-            <div className="inline-block bg-indigo-100 text-indigo-700 px-4 py-1 rounded-full text-sm font-medium mb-4">
+            <div className="inline-flex items-center bg-indigo-100 text-indigo-700 px-4 py-2 rounded-full text-sm font-medium mb-4">
+              <Star className="h-4 w-4 mr-2" />
               Client Testimonials
             </div>
             <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-6">
@@ -353,22 +420,22 @@ const CustomSoftwareDevelopment = () => {
                 quote: "OK Technology delivered a custom web application that transformed our customer engagement, boosting retention by 35%.",
                 author: "Jennifer Martinez",
                 position: "CTO, Global Innovations Inc.",
-                image: "/api/placeholder/80/80"
+                avatar: "JM"
               },
               {
                 quote: "The mobile app developed by OK Technology exceeded our expectations, with seamless performance and outstanding user feedback.",
                 author: "Lisa Wong",
                 position: "Product Manager, MobileTech",
-                image: "/api/placeholder/80/80"
+                avatar: "LW"
               },
               {
                 quote: "Their enterprise software streamlined our operations, saving us millions annually in operational costs.",
                 author: "David Thompson",
                 position: "CEO, Insight Dynamics",
-                image: "/api/placeholder/80/80"
+                avatar: "DT"
               }
             ].map((testimonial, index) => (
-              <div key={index} className="bg-gray-50 p-8 rounded-xl shadow-sm">
+              <div key={index} className="bg-white p-8 rounded-2xl shadow-lg">
                 <div className="flex mb-6">
                   {[1, 2, 3, 4, 5].map((star) => (
                     <Star key={star} className="h-5 w-5 text-yellow-500 fill-yellow-500" />
@@ -376,7 +443,9 @@ const CustomSoftwareDevelopment = () => {
                 </div>
                 <p className="text-gray-600 mb-8 italic">"{testimonial.quote}"</p>
                 <div className="flex items-center">
-                  <img src={testimonial.image} alt={testimonial.author} className="w-12 h-12 rounded-full mr-4" />
+                  <div className="w-12 h-12 bg-indigo-100 rounded-full flex items-center justify-center mr-4 font-semibold text-indigo-700">
+                    {testimonial.avatar}
+                  </div>
                   <div>
                     <h4 className="font-bold text-gray-800">{testimonial.author}</h4>
                     <p className="text-sm text-gray-500">{testimonial.position}</p>
@@ -389,18 +458,22 @@ const CustomSoftwareDevelopment = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 px-6 bg-gradient-to-r from-indigo-600 to-purple-700 text-white">
-        <div className="container mx-auto max-w-6xl">
-          <div className="flex flex-col md:flex-row items-center justify-between">
+      <section className="py-20 px-6 bg-gradient-to-r from-indigo-600 to-purple-700 text-white relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-r from-indigo-700/50 to-purple-800/50"></div>
+        <div className="absolute top-0 right-0 -mt-20 -mr-20 w-40 h-40 bg-white opacity-10 rounded-full"></div>
+        <div className="absolute bottom-0 left-0 -mb-20 -ml-20 w-40 h-40 bg-cyan-400 opacity-20 rounded-full"></div>
+        
+        <div className="container mx-auto max-w-6xl relative z-10">
+          <div className="flex flex-col md:flex-row items-center justify-between bg-white/10 backdrop-blur-sm p-10 rounded-2xl border border-white/20">
             <div className="md:w-2/3 mb-8 md:mb-0">
               <h2 className="text-3xl md:text-4xl font-bold mb-4">Ready to Build Your Custom Software?</h2>
               <p className="text-xl opacity-90">
-                Let’s discuss how our tailored software solutions can solve your challenges and drive your business forward.
+                Let's discuss how our tailored software solutions can solve your challenges and drive your business forward.
               </p>
             </div>
             <div>
-              <button className="bg-white text-indigo-700 hover:bg-opacity-90 px-8 py-4 rounded-lg font-medium transition duration-300 shadow-lg flex items-center gap-2">
-                Schedule a Consultation
+              <button className="bg-white text-indigo-700 hover:bg-gray-100 px-8 py-4 rounded-lg font-semibold transition duration-300 shadow-lg hover:shadow-xl flex items-center gap-2">
+                <Link to="/contact">Schedule a Consultation</Link>
                 <ArrowRight className="h-5 w-5" />
               </button>
             </div>
@@ -408,92 +481,7 @@ const CustomSoftwareDevelopment = () => {
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="bg-gray-900 text-white pt-20 pb-10 px-6">
-        <div className="container mx-auto max-w-6xl">
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
-            <div className="col-span-1 md:col-span-1">
-              <h3 className="text-xl font-bold mb-6">OK Technology</h3>
-              <p className="text-gray-400 mb-6">
-                Transforming businesses through innovative technology solutions since 2010.
-              </p>
-              <div className="flex space-x-4">
-                <a href="#" className="text-gray-400 hover:text-white transition-colors">
-                  <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z" />
-                  </svg>
-                </a>
-                <a href="#" className="text-gray-400 hover:text-white transition-colors">
-                  <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
-                  </svg>
-                </a>
-                <a href="#" className="text-gray-400 hover:text-white transition-colors">
-                  <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm3 8h-1.35c-.538 0-.65.221-.65.778v1.222h2l-.209 2h-1.791v7h-3v-7h-2v-2h2v-2.308c0-1.769.931-2.692 3.029-2.692h1.971v3z" />
-                  </svg>
-                </a>
-                <a href="#" className="text-gray-400 hover:text-white transition-colors">
-                  <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
-                  </svg>
-                </a>
-              </div>
-            </div>
-            <div>
-              <h3 className="text-lg font-bold mb-6">Our Services</h3>
-              <ul className="space-y-4">
-                <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Custom Software</a></li>
-                <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Cloud Solutions</a></li>
-                <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Cybersecurity</a></li>
-                <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Data Analytics & AI</a></li>
-                <li><a href="#" className="text-gray-400 hover:text-white transition-colors">IT Infrastructure</a></li>
-                <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Digital Transformation</a></li>
-              </ul>
-            </div>
-            <div>
-              <h3 className="text-lg font-bold mb-6">Resources</h3>
-              <ul className="space-y-4">
-                <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Case Studies</a></li>
-                <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Blog</a></li>
-                <li><a href="#" className="text-gray-400 hover:text-white transition-colors">White Papers</a></li>
-                <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Webinars</a></li>
-                <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Career Opportunities</a></li>
-              </ul>
-            </div>
-            <div>
-              <h3 className="text-lg font-bold mb-6">Legal</h3>
-              <ul className="space-y-4">
-                <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Privacy Policy</a></li>
-                <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Terms of Service</a></li>
-                <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Cookie Policy</a></li>
-                <li><a href="#" className="text-gray-400 hover:text-white transition-colors">GDPR Compliance</a></li>
-                <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Security</a></li>
-              </ul>
-            </div>
-          </div>
-          <div className="border-t border-gray-800 pt-8">
-            <div className="flex flex-col md:flex-row justify-between items-center">
-              <p className="text-gray-400 text-sm mb-4 md:mb-0">
-                © {new Date().getFullYear()} OK Technology, Inc. All rights reserved.
-              </p>
-              <div className="flex items-center space-x-4">
-                <a href="#" className="text-gray-400 hover:text-white transition-colors text-sm">
-                  Privacy Policy
-                </a>
-                <span className="text-gray-600">•</span>
-                <a href="#" className="text-gray-400 hover:text-white transition-colors text-sm">
-                  Terms of Service
-                </a>
-                <span className="text-gray-600">•</span>
-                <a href="#" className="text-gray-400 hover:text-white transition-colors text-sm">
-                  Sitemap
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </footer>
+    
     </div>
   );
 };

@@ -8,38 +8,112 @@ import {
   Globe, 
   Smartphone, 
   Monitor, 
-  Terminal
+  Terminal,
+  Zap,
+  Users,
+  TrendingUp,
+  Heart,
+  Target,
+  Calendar,
+  PieChart,
+  ChevronRight,
+  
 } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const SocialMediaSolutions = () => {
   return (
-    <div className="bg-gray-50">
-      {/* Hero Section */}
-      <header className="bg-gradient-to-r from-indigo-600 to-purple-700 text-white">
-        <div className="container mx-auto px-6 py-24 max-w-6xl">
-          <div className="flex flex-col md:flex-row gap-12 items-center">
+    <div className="bg-white">
+      {/* Enhanced Hero Section */}
+      <header className="relative bg-gradient-to-br from-blue-600 to-cyan-500 text-white overflow-hidden">
+        <div className="absolute inset-0 bg-black/20 z-0"></div>
+        <div className="absolute top-0 right-0 -mr-40 -mt-40 w-80 h-80 bg-white opacity-10 rounded-full"></div>
+        <div className="absolute bottom-0 left-0 -ml-40 -mb-40 w-80 h-80 bg-cyan-400 opacity-20 rounded-full"></div>
+        
+        <div className="container mx-auto px-6 py-28 max-w-6xl relative z-10">
+          <div className="flex flex-col md:flex-row gap-16 items-center">
             <div className="md:w-1/2">
-              <div className="inline-block bg-white bg-opacity-20 px-3 py-1 rounded-full text-sm font-medium mb-6">
+              <div className="inline-flex items-center bg-white/20 backdrop-blur-sm px-4 py-2 rounded-full text-sm font-medium mb-6 border border-white/30">
+                <Zap className="h-4 w-4 mr-2" />
                 Social Media Solutions
               </div>
-              <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight">
-                Amplify Your Brand <br />with Social Media
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
+                Amplify Your Brand <br />With <span className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-300 to-amber-400">Social Media</span>
               </h1>
-              <p className="text-xl md:text-2xl opacity-90 mb-8 leading-relaxed">
+              <p className="text-lg md:text-xl opacity-90 mb-8 leading-relaxed">
                 Boost your online presence with our comprehensive social media management and marketing solutions.
               </p>
               <div className="flex flex-wrap gap-4">
-                <button className="bg-white text-indigo-700 hover:bg-opacity-90 px-6 py-3 rounded-lg font-medium transition duration-300 shadow-lg">
+                {/* <button className="bg-white text-blue-700 hover:bg-gray-100 px-8 py-4 rounded-lg font-semibold transition duration-300 shadow-lg hover:shadow-xl flex items-center">
                   Get a Quote
+                  <ArrowRight className="ml-2 h-5 w-5" />
+                </button> */}
+                <button className="bg-transparent border-2 border-white text-white hover:bg-white/10 px-8 py-4 rounded-lg font-semibold transition duration-300 flex items-center">
+                  <Link to="/contact">Contact Us</Link>
+                  <MessageSquare className="ml-2 h-5 w-5" />
                 </button>
-                <button className="bg-transparent border-2 border-white hover:bg-white hover:bg-opacity-10 px-6 py-3 rounded-lg font-medium transition duration-300">
-                  Contact Us
-                </button>
+              </div>
+              
+              <div className="flex flex-wrap gap-6 mt-12">
+                <div className="flex items-center">
+                  <TrendingUp className="h-5 w-5 mr-2 text-yellow-300" />
+                  <span className="text-sm">Proven Results</span>
+                </div>
+                <div className="flex items-center">
+                  <Target className="h-5 w-5 mr-2 text-yellow-300" />
+                  <span className="text-sm">Audience Targeting</span>
+                </div>
+                <div className="flex items-center">
+                  <Heart className="h-5 w-5 mr-2 text-yellow-300" />
+                  <span className="text-sm">Engagement Growth</span>
+                </div>
               </div>
             </div>
             <div className="md:w-1/2">
-              <div className="bg-white bg-opacity-10 p-4 rounded-xl shadow-2xl">
-                <img src="/api/placeholder/600/450" alt="Social Media Solutions" className="rounded-lg w-full" />
+              <div className="relative">
+                <div className="absolute -inset-5">
+                  <div className="w-full h-full mx-auto rotate-6 opacity-30 bg-gradient-to-r from-yellow-400 to-amber-500 blur-lg"></div>
+                </div>
+                <div className="relative bg-white/10 backdrop-blur-md p-6 rounded-2xl shadow-2xl border border-white/20">
+                  <div className="bg-gradient-to-br from-blue-700 to-cyan-600 p-1 rounded-xl">
+                    <div className="bg-gray-900 rounded-lg overflow-hidden p-4">
+                      <div className="flex mb-4">
+                        <div className="flex space-x-2">
+                          <div className="w-3 h-3 rounded-full bg-red-500"></div>
+                          <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
+                          <div className="w-3 h-3 rounded-full bg-green-500"></div>
+                        </div>
+                      </div>
+                      <div className="bg-gray-800 rounded-lg p-4">
+                        <div className="flex space-x-4 mb-4">
+                          <div className="bg-blue-600/20 p-2 rounded-lg">
+                            <div className="h-3 w-16 bg-blue-500 rounded"></div>
+                            <div className="h-2 w-12 bg-blue-400/50 rounded mt-2"></div>
+                          </div>
+                          <div className="bg-cyan-600/20 p-2 rounded-lg">
+                            <div className="h-3 w-20 bg-cyan-500 rounded"></div>
+                            <div className="h-2 w-14 bg-cyan-400/50 rounded mt-2"></div>
+                          </div>
+                          <div className="bg-amber-600/20 p-2 rounded-lg">
+                            <div className="h-3 w-14 bg-amber-500 rounded"></div>
+                            <div className="h-2 w-10 bg-amber-400/50 rounded mt-2"></div>
+                          </div>
+                        </div>
+                        <div className="bg-gray-700/50 p-3 rounded-lg">
+                          <div className="flex items-center">
+                            <div className="h-8 w-8 bg-blue-500 rounded-full"></div>
+                            <div className="ml-2">
+                              <div className="h-2 w-24 bg-gray-500 rounded"></div>
+                              <div className="h-2 w-16 bg-gray-600 rounded mt-2"></div>
+                            </div>
+                          </div>
+                          <div className="h-3 w-full bg-gray-600 rounded mt-3"></div>
+                          <div className="h-3 w-3/4 bg-gray-600 rounded mt-2"></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -47,10 +121,12 @@ const SocialMediaSolutions = () => {
       </header>
 
       {/* Service Overview Section */}
-      <section className="py-20 px-6">
+      <section className="py-20 px-6 relative">
+        <div className="absolute top-0 left-0 right-0 h-1/2 bg-blue-50 -z-10"></div>
         <div className="container mx-auto max-w-6xl">
           <div className="text-center mb-16">
-            <div className="inline-block bg-indigo-100 text-indigo-700 px-4 py-1 rounded-full text-sm font-medium mb-4">
+            <div className="inline-flex items-center bg-blue-100 text-blue-700 px-4 py-2 rounded-full text-sm font-medium mb-4">
+              <Zap className="h-4 w-4 mr-2" />
               Why Social Media Solutions?
             </div>
             <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-6">
@@ -63,27 +139,38 @@ const SocialMediaSolutions = () => {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {[
               {
-                icon: <Globe className="h-8 w-8 text-indigo-600" />,
+                icon: <Globe className="h-10 w-10 text-blue-600" />,
                 title: "Social Media Management",
-                description: "Streamline content creation, scheduling, and analytics across multiple platforms."
+                description: "Streamline content creation, scheduling, and analytics across multiple platforms.",
+                features: ["Content Strategy", "Platform Management", "Community Engagement"]
               },
               {
-                icon: <Smartphone className="h-8 w-8 text-indigo-600" />,
+                icon: <Smartphone className="h-10 w-10 text-blue-600" />,
                 title: "Targeted Advertising",
-                description: "Create and optimize ad campaigns to reach your ideal audience effectively."
+                description: "Create and optimize ad campaigns to reach your ideal audience effectively.",
+                features: ["Audience Targeting", "Ad Creative", "Campaign Optimization"]
               },
               {
-                icon: <Monitor className="h-8 w-8 text-indigo-600" />,
+                icon: <Monitor className="h-10 w-10 text-blue-600" />,
                 title: "Analytics & Insights",
-                description: "Gain actionable insights with advanced analytics to refine your strategy."
+                description: "Gain actionable insights with advanced analytics to refine your strategy.",
+                features: ["Performance Tracking", "ROI Analysis", "Competitive Analysis"]
               }
             ].map((item, index) => (
-              <div key={index} className="bg-white rounded-xl p-8 shadow-sm hover:shadow-md transition-shadow">
-                <div className="bg-indigo-50 p-4 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+              <div key={index} className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow border border-gray-100">
+                <div className="bg-blue-50 p-4 rounded-2xl w-16 h-16 flex items-center justify-center mx-auto mb-6">
                   {item.icon}
                 </div>
-                <h3 className="text-xl font-bold text-gray-800 mb-4">{item.title}</h3>
-                <p className="text-gray-600">{item.description}</p>
+                <h3 className="text-xl font-bold text-gray-800 mb-4 text-center">{item.title}</h3>
+                <p className="text-gray-600 mb-6 text-center">{item.description}</p>
+                <ul className="space-y-2">
+                  {item.features.map((feature, i) => (
+                    <li key={i} className="flex items-center text-sm text-gray-500">
+                      <CheckCircle className="h-4 w-4 text-blue-500 mr-2" />
+                      {feature}
+                    </li>
+                  ))}
+                </ul>
               </div>
             ))}
           </div>
@@ -91,10 +178,11 @@ const SocialMediaSolutions = () => {
       </section>
 
       {/* Benefits Section */}
-      <section className="py-20 px-6 bg-white">
+      <section className="py-20 px-6 bg-gradient-to-br from-gray-50 to-blue-50">
         <div className="container mx-auto max-w-6xl">
           <div className="text-center mb-16">
-            <div className="inline-block bg-indigo-100 text-indigo-700 px-4 py-1 rounded-full text-sm font-medium mb-4">
+            <div className="inline-flex items-center bg-blue-100 text-blue-700 px-4 py-2 rounded-full text-sm font-medium mb-4">
+              <BarChart className="h-4 w-4 mr-2" />
               Benefits
             </div>
             <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-6">
@@ -107,33 +195,35 @@ const SocialMediaSolutions = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {[
               {
-                icon: <CheckCircle className="h-6 w-6 text-indigo-600" />,
+                icon: <CheckCircle className="h-6 w-6 text-blue-600" />,
                 title: "Increased Brand Visibility",
                 description: "Expand your reach and build brand awareness across social platforms."
               },
               {
-                icon: <CheckCircle className="h-6 w-6 text-indigo-600" />,
+                icon: <CheckCircle className="h-6 w-6 text-blue-600" />,
                 title: "Enhanced Engagement",
                 description: "Foster meaningful interactions with your audience to build loyalty."
               },
               {
-                icon: <CheckCircle className="h-6 w-6 text-indigo-600" />,
+                icon: <CheckCircle className="h-6 w-6 text-blue-600" />,
                 title: "Data-Driven Strategies",
                 description: "Leverage analytics to optimize campaigns and maximize ROI."
               },
               {
-                icon: <CheckCircle className="h-6 w-6 text-indigo-600" />,
+                icon: <CheckCircle className="h-6 w-6 text-blue-600" />,
                 title: "Scalable Campaigns",
                 description: "Adaptable solutions that grow with your business and marketing needs."
               }
             ].map((benefit, index) => (
-              <div key={index} className="flex items-start gap-4">
-                <div className="bg-indigo-100 p-3 rounded-md">
-                  {benefit.icon}
-                </div>
-                <div>
-                  <h3 className="font-bold text-gray-800 mb-2">{benefit.title}</h3>
-                  <p className="text-gray-600">{benefit.description}</p>
+              <div key={index} className="bg-white p-6 rounded-2xl shadow-md hover:shadow-lg transition-shadow">
+                <div className="flex items-start gap-4">
+                  <div className="bg-blue-100 p-3 rounded-xl">
+                    {benefit.icon}
+                  </div>
+                  <div>
+                    <h3 className="font-bold text-gray-800 mb-2 text-lg">{benefit.title}</h3>
+                    <p className="text-gray-600">{benefit.description}</p>
+                  </div>
                 </div>
               </div>
             ))}
@@ -142,10 +232,11 @@ const SocialMediaSolutions = () => {
       </section>
 
       {/* Process Section */}
-      <section className="py-20 px-6 bg-gray-50">
+      <section className="py-20 px-6 bg-white">
         <div className="container mx-auto max-w-6xl">
           <div className="text-center mb-16">
-            <div className="inline-block bg-indigo-100 text-indigo-700 px-4 py-1 rounded-full text-sm font-medium mb-4">
+            <div className="inline-flex items-center bg-blue-100 text-blue-700 px-4 py-2 rounded-full text-sm font-medium mb-4">
+              <Calendar className="h-4 w-4 mr-2" />
               Our Process
             </div>
             <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-6">
@@ -155,53 +246,57 @@ const SocialMediaSolutions = () => {
               We follow a strategic approach to ensure your social media campaigns are effective, engaging, and aligned with your business goals.
             </p>
           </div>
-          <div className="relative">
-            <div className="absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-indigo-100"></div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
               {
-                step: "Strategy Development",
+                step: "01",
+                title: "Strategy Development",
                 description: "We analyze your brand, audience, and goals to create a tailored social media strategy.",
                 icon: <MessageSquare className="h-8 w-8 text-white" />
               },
               {
-                step: "Content Creation",
+                step: "02",
+                title: "Content Creation",
                 description: "Crafting engaging content, including visuals and copy, to resonate with your audience.",
                 icon: <Globe className="h-8 w-8 text-white" />
               },
               {
-                step: "Campaign Execution",
+                step: "03",
+                title: "Campaign Execution",
                 description: "Launching and managing campaigns across platforms with precise targeting.",
                 icon: <Smartphone className="h-8 w-8 text-white" />
               },
               {
-                step: "Monitoring & Analytics",
+                step: "04",
+                title: "Monitoring & Analytics",
                 description: "Tracking performance and analyzing data to optimize campaign results.",
                 icon: <BarChart className="h-8 w-8 text-white" />
               },
               {
-                step: "Optimization",
+                step: "05",
+                title: "Optimization",
                 description: "Refining strategies based on insights to maximize engagement and ROI.",
                 icon: <CheckCircle className="h-8 w-8 text-white" />
               },
               {
-                step: "Reporting & Support",
+                step: "06",
+                title: "Reporting & Support",
                 description: "Providing detailed reports and ongoing support to ensure long-term success.",
                 icon: <Monitor className="h-8 w-8 text-white" />
               }
             ].map((step, index) => (
-              <div key={index} className={`flex flex-col ${index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'} items-center mb-16`}>
-                <div className="md:w-1/2 mb-8 md:mb-0 md:px-12">
-                  <div className={`${index % 2 === 0 ? 'md:text-right' : 'md:text-left'}`}>
-                    <div className="text-indigo-600 font-bold text-xl mb-2">{step.step}</div>
-                    <p className="text-gray-600">{step.description}</p>
+              <div key={index} className="bg-gradient-to-br from-blue-50 to-white p-6 rounded-2xl shadow-md border border-blue-100 hover:shadow-lg transition-shadow">
+                <div className="flex items-center mb-4">
+                  <div className="bg-blue-600 text-white font-bold text-lg w-10 h-10 rounded-full flex items-center justify-center mr-4">
+                    {step.step}
                   </div>
+                  <h3 className="text-xl font-bold text-gray-800">{step.title}</h3>
                 </div>
-                <div className="relative flex items-center justify-center">
-                  <div className="bg-indigo-600 p-4 rounded-full z-10">
-                    {step.icon}
-                  </div>
+                <p className="text-gray-600 mb-4">{step.description}</p>
+                <div className="bg-blue-600 p-3 rounded-xl w-12 h-12 flex items-center justify-center">
+                  {step.icon}
                 </div>
-                <div className="md:w-1/2 md:px-12"></div>
               </div>
             ))}
           </div>
@@ -209,36 +304,37 @@ const SocialMediaSolutions = () => {
       </section>
 
       {/* Technologies Section */}
-      <section className="py-20 px-6 bg-white">
+      <section className="py-20 px-6 bg-gradient-to-br from-blue-900 to-cyan-800 text-white">
         <div className="container mx-auto max-w-6xl">
           <div className="text-center mb-16">
-            <div className="inline-block bg-indigo-100 text-indigo-700 px-4 py-1 rounded-full text-sm font-medium mb-4">
+            <div className="inline-flex items-center bg-white/20 backdrop-blur-sm px-4 py-2 rounded-full text-sm font-medium mb-4 border border-white/20">
+              <Terminal className="h-4 w-4 mr-2" />
               Technologies We Use
             </div>
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-6">
+            <h2 className="text-3xl md:text-4xl font-bold mb-6">
               Powerful Tools for Social Media Success
             </h2>
-            <p className="text-gray-600 text-lg max-w-3xl mx-auto">
+            <p className="text-blue-200 text-lg max-w-3xl mx-auto">
               We leverage cutting-edge tools to manage, analyze, and optimize your social media presence.
             </p>
           </div>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
             {[
-              { name: "Hootsuite", category: "Management" },
-              { name: "Sprout Social", category: "Management" },
-              { name: "Google Analytics", category: "Analytics" },
-              { name: "Meta Business Suite", category: "Advertising" },
-              { name: "React", category: "Frontend" },
-              { name: "Node.js", category: "Backend" },
-              { name: "MongoDB", category: "Database" },
-              { name: "Canva", category: "Content Creation" }
+              { name: "Hootsuite", category: "Management", color: "bg-orange-500/10" },
+              { name: "Sprout Social", category: "Management", color: "bg-green-500/10" },
+              { name: "Google Analytics", category: "Analytics", color: "bg-yellow-500/10" },
+              { name: "Meta Business Suite", category: "Advertising", color: "bg-blue-500/10" },
+              { name: "Buffer", category: "Scheduling", color: "bg-red-500/10" },
+              { name: "Canva", category: "Content Creation", color: "bg-teal-500/10" },
+              { name: "Later", category: "Visual Planning", color: "bg-purple-500/10" },
+              { name: "Brandwatch", category: "Analytics", color: "bg-pink-500/10" }
             ].map((tech, index) => (
-              <div key={index} className="bg-gray-50 rounded-lg p-6 shadow-sm hover:shadow-md transition-shadow text-center">
-                <div className="bg-indigo-50 p-4 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
-                  <Terminal className="h-8 w-8 text-indigo-600" />
+              <div key={index} className={`bg-white/5 backdrop-blur-sm rounded-xl p-6 shadow-md hover:shadow-lg transition-shadow border border-white/10 ${tech.color}`}>
+                <div className="bg-white/10 p-4 rounded-xl w-16 h-16 flex items-center justify-center mx-auto mb-4">
+                  <Terminal className="h-8 w-8 text-white" />
                 </div>
-                <h3 className="font-bold text-gray-800 mb-1">{tech.name}</h3>
-                <p className="text-sm text-gray-500">{tech.category}</p>
+                <h3 className="font-bold text-lg mb-1 text-center">{tech.name}</h3>
+                <p className="text-sm text-blue-200 text-center">{tech.category}</p>
               </div>
             ))}
           </div>
@@ -246,10 +342,11 @@ const SocialMediaSolutions = () => {
       </section>
 
       {/* Case Studies Section */}
-      <section className="py-20 px-6 bg-indigo-50">
+      <section className="py-20 px-6 bg-white">
         <div className="container mx-auto max-w-6xl">
           <div className="text-center mb-16">
-            <div className="inline-block bg-indigo-100 text-indigo-700 px-4 py-1 rounded-full text-sm font-medium mb-4">
+            <div className="inline-flex items-center bg-blue-100 text-blue-700 px-4 py-2 rounded-full text-sm font-medium mb-4">
+              <BarChart className="h-4 w-4 mr-2" />
               Success Stories
             </div>
             <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-6">
@@ -267,7 +364,7 @@ const SocialMediaSolutions = () => {
                 challenge: "Increase online engagement and drive e-commerce sales",
                 solution: "Targeted social media campaigns with personalized content",
                 result: "45% increase in engagement, 30% boost in online sales",
-                image: "/api/placeholder/600/400"
+                color: "bg-blue-500"
               },
               {
                 title: "Hospitality",
@@ -275,68 +372,64 @@ const SocialMediaSolutions = () => {
                 challenge: "Build brand awareness and attract new customers",
                 solution: "Comprehensive social media strategy with influencer partnerships",
                 result: "50% growth in followers, 25% increase in bookings",
-                image: "/api/placeholder/600/400"
+                color: "bg-cyan-500"
               }
             ].map((study, index) => (
-              <div key={index} className="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow group">
-                <div className="flex flex-col md:flex-row">
-                  <div className="md:w-2/5">
-                    <img src={study.image} alt={study.title} className="w-full h-full object-cover" />
-                  </div>
-                  <div className="md:w-3/5 p-8">
-                    <span className="inline-block bg-indigo-100 text-indigo-700 px-2 py-1 rounded-md text-sm font-medium mb-2">
-                      {study.title}
-                    </span>
-                    <h3 className="text-xl font-bold text-gray-800 mb-2">{study.company}</h3>
-                    <div className="space-y-3 text-gray-600 mb-4">
-                      <div className="flex items-start">
-                        <div className="bg-gray-200 p-1 rounded mr-3 mt-1">
-                          <MessageSquare className="h-4 w-4 text-gray-500" />
-                        </div>
-                        <div>
-                          <span className="font-medium text-gray-700">Challenge:</span> {study.challenge}
-                        </div>
+              <div key={index} className="bg-gradient-to-br from-gray-50 to-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow group border border-gray-100">
+                <div className="p-8">
+                  <span className="inline-block bg-blue-100 text-blue-700 px-3 py-1 rounded-md text-sm font-medium mb-4">
+                    {study.title}
+                  </span>
+                  <h3 className="text-2xl font-bold text-gray-800 mb-4">{study.company}</h3>
+                  <div className="space-y-4 text-gray-600 mb-6">
+                    <div className="flex items-start">
+                      <div className="bg-gray-200 p-2 rounded-lg mr-4 mt-1">
+                        <MessageSquare className="h-5 w-5 text-gray-600" />
                       </div>
-                      <div className="flex items-start">
-                        <div className="bg-indigo-100 p-1 rounded mr-3 mt-1">
-                          <CheckCircle className="h-4 w-4 text-indigo-600" />
-                        </div>
-                        <div>
-                          <span className="font-medium text-gray-700">Solution:</span> {study.solution}
-                        </div>
-                      </div>
-                      <div className="flex items-start">
-                        <div className="bg-green-100 p-1 rounded mr-3 mt-1">
-                          <BarChart className="h-4 w-4 text-green-600" />
-                        </div>
-                        <div>
-                          <span className="font-medium text-gray-700">Result:</span> {study.result}
-                        </div>
+                      <div>
+                        <span className="font-semibold text-gray-700">Challenge:</span> {study.challenge}
                       </div>
                     </div>
-                    <button className="text-indigo-600 font-medium hover:text-indigo-800 transition-colors flex items-center">
-                      Read full case study
-                      <ArrowRight className="ml-2 h-4 w-4" />
-                    </button>
+                    <div className="flex items-start">
+                      <div className="bg-blue-100 p-2 rounded-lg mr-4 mt-1">
+                        <CheckCircle className="h-5 w-5 text-blue-600" />
+                      </div>
+                      <div>
+                        <span className="font-semibold text-gray-700">Solution:</span> {study.solution}
+                      </div>
+                    </div>
+                    <div className="flex items-start">
+                      <div className="bg-green-100 p-2 rounded-lg mr-4 mt-1">
+                        <BarChart className="h-5 w-5 text-green-600" />
+                      </div>
+                      <div>
+                        <span className="font-semibold text-gray-700">Result:</span> {study.result}
+                      </div>
+                    </div>
                   </div>
+                  {/* <button className="text-blue-600 font-semibold hover:text-blue-800 transition-colors flex items-center group-hover:translate-x-2 transition-transform">
+                    Read full case study
+                    <ArrowRight className="ml-2 h-5 w-5" />
+                  </button> */}
                 </div>
               </div>
             ))}
           </div>
-          <div className="flex justify-center mt-12">
-            <button className="flex items-center gap-2 bg-indigo-600 hover:bg-indigo-700 text-white py-3 px-6 rounded-lg transition-colors shadow-md">
+          {/* <div className="flex justify-center mt-12">
+            <button className="flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white py-3 px-6 rounded-lg transition-colors shadow-md hover:shadow-lg font-semibold">
               View All Case Studies
               <ArrowRight className="h-5 w-5" />
             </button>
-          </div>
+          </div> */}
         </div>
       </section>
 
       {/* Testimonials Section */}
-      <section className="py-20 px-6 bg-white">
+      <section className="py-20 px-6 bg-gradient-to-br from-blue-50 to-cyan-50">
         <div className="container mx-auto max-w-6xl">
           <div className="text-center mb-16">
-            <div className="inline-block bg-indigo-100 text-indigo-700 px-4 py-1 rounded-full text-sm font-medium mb-4">
+            <div className="inline-flex items-center bg-blue-100 text-blue-700 px-4 py-2 rounded-full text-sm font-medium mb-4">
+              <Star className="h-4 w-4 mr-2" />
               Client Testimonials
             </div>
             <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-6">
@@ -352,22 +445,22 @@ const SocialMediaSolutions = () => {
                 quote: "OK Technology's social media strategy skyrocketed our engagement, doubling our follower base in just three months.",
                 author: "Lisa Wong",
                 position: "Marketing Director, ShopSmart Corporation",
-                image: "/api/placeholder/80/80"
+                avatar: "LW"
               },
               {
                 quote: "Their targeted ad campaigns delivered a 35% increase in conversions, exceeding our expectations.",
                 author: "James Carter",
                 position: "CEO, Elite Resorts",
-                image: "/api/placeholder/80/80"
+                avatar: "JC"
               },
               {
                 quote: "The analytics tools provided by OK gave us deep insights, allowing us to refine our strategy and boost ROI.",
                 author: "Sarah Lee",
                 position: "CMO, TrendSetters Inc.",
-                image: "/api/placeholder/80/80"
+                avatar: "SL"
               }
             ].map((testimonial, index) => (
-              <div key={index} className="bg-gray-50 p-8 rounded-xl shadow-sm">
+              <div key={index} className="bg-white p-8 rounded-2xl shadow-lg">
                 <div className="flex mb-6">
                   {[1, 2, 3, 4, 5].map((star) => (
                     <Star key={star} className="h-5 w-5 text-yellow-500 fill-yellow-500" />
@@ -375,7 +468,9 @@ const SocialMediaSolutions = () => {
                 </div>
                 <p className="text-gray-600 mb-8 italic">"{testimonial.quote}"</p>
                 <div className="flex items-center">
-                  <img src={testimonial.image} alt={testimonial.author} className="w-12 h-12 rounded-full mr-4" />
+                  <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mr-4 font-semibold text-blue-700">
+                    {testimonial.avatar}
+                  </div>
                   <div>
                     <h4 className="font-bold text-gray-800">{testimonial.author}</h4>
                     <p className="text-sm text-gray-500">{testimonial.position}</p>
@@ -387,19 +482,43 @@ const SocialMediaSolutions = () => {
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="py-20 px-6 bg-gradient-to-r from-indigo-600 to-purple-700 text-white">
+      {/* Stats Section */}
+      <section className="py-20 px-6 bg-gradient-to-r from-blue-600 to-cyan-600 text-white">
         <div className="container mx-auto max-w-6xl">
-          <div className="flex flex-col md:flex-row items-center justify-between">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+            {[
+              { number: "89%", label: "Increase in Engagement", icon: <Heart className="h-8 w-8 mx-auto mb-4" /> },
+              { number: "2.3x", label: "ROI Improvement", icon: <TrendingUp className="h-8 w-8 mx-auto mb-4" /> },
+              { number: "57%", label: "Cost Reduction", icon: <PieChart className="h-8 w-8 mx-auto mb-4" /> },
+              { number: "500+", label: "Campaigns Managed", icon: <Target className="h-8 w-8 mx-auto mb-4" /> }
+            ].map((stat, index) => (
+              <div key={index} className="bg-white/10 backdrop-blur-sm p-6 rounded-2xl border border-white/20">
+                {stat.icon}
+                <div className="text-3xl md:text-4xl font-bold mb-2">{stat.number}</div>
+                <div className="text-sm opacity-90">{stat.label}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="py-20 px-6 bg-gradient-to-r from-blue-700 to-cyan-700 text-white relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-r from-blue-800/50 to-cyan-800/50"></div>
+        <div className="absolute top-0 right-0 -mt-20 -mr-20 w-40 h-40 bg-white opacity-10 rounded-full"></div>
+        <div className="absolute bottom-0 left-0 -mb-20 -ml-20 w-40 h-40 bg-yellow-400 opacity-20 rounded-full"></div>
+        
+        <div className="container mx-auto max-w-6xl relative z-10">
+          <div className="flex flex-col md:flex-row items-center justify-between bg-white/10 backdrop-blur-sm p-10 rounded-2xl border border-white/20">
             <div className="md:w-2/3 mb-8 md:mb-0">
               <h2 className="text-3xl md:text-4xl font-bold mb-4">Ready to Elevate Your Social Media Presence?</h2>
               <p className="text-xl opacity-90">
-                Let’s discuss how our social media solutions can help you engage your audience and grow your brand.
+                Let's discuss how our social media solutions can help you engage your audience and grow your brand.
               </p>
             </div>
             <div>
-              <button className="bg-white text-indigo-700 hover:bg-opacity-90 px-8 py-4 rounded-lg font-medium transition duration-300 shadow-lg flex items-center gap-2">
-                Schedule a Consultation
+              <button className="bg-white text-blue-700 hover:bg-gray-100 px-8 py-4 rounded-lg font-semibold transition duration-300 shadow-lg hover:shadow-xl flex items-center gap-2">
+                <Link to="/contact">Schedule a Consultation</Link>
                 <ArrowRight className="h-5 w-5" />
               </button>
             </div>
@@ -407,92 +526,7 @@ const SocialMediaSolutions = () => {
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="bg-gray-900 text-white pt-20 pb-10 px-6">
-        <div className="container mx-auto max-w-6xl">
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
-            <div className="col-span-1 md:col-span-1">
-              <h3 className="text-xl font-bold mb-6">OK Technology</h3>
-              <p className="text-gray-400 mb-6">
-                Transforming businesses through innovative technology solutions since 2010.
-              </p>
-              <div className="flex space-x-4">
-                <a href="#" className="text-gray-400 hover:text-white transition-colors">
-                  <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z" />
-                  </svg>
-                </a>
-                <a href="#" className="text-gray-400 hover:text-white transition-colors">
-                  <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
-                  </svg>
-                </a>
-                <a href="#" className="text-gray-400 hover:text-white transition-colors">
-                  <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm3 8h-1.35c-.538 0-.65.221-.65.778v1.222h2l-.209 2h-1.791v7h-3v-7h-2v-2h2v-2.308c0-1.769.931-2.692 3.029-2.692h1.971v3z" />
-                  </svg>
-                </a>
-                <a href="#" className="text-gray-400 hover:text-white transition-colors">
-                  <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
-                  </svg>
-                </a>
-              </div>
-            </div>
-            <div>
-              <h3 className="text-lg font-bold mb-6">Our Services</h3>
-              <ul className="space-y-4">
-                <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Custom Software</a></li>
-                <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Cloud Solutions</a></li>
-                <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Cybersecurity</a></li>
-                <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Data Analytics & AI</a></li>
-                <li><a href="#" className="text-gray-400 hover:text-white transition-colors">IT Infrastructure</a></li>
-                <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Digital Transformation</a></li>
-              </ul>
-            </div>
-            <div>
-              <h3 className="text-lg font-bold mb-6">Resources</h3>
-              <ul className="space-y-4">
-                <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Case Studies</a></li>
-                <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Blog</a></li>
-                <li><a href="#" className="text-gray-400 hover:text-white transition-colors">White Papers</a></li>
-                <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Webinars</a></li>
-                <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Career Opportunities</a></li>
-              </ul>
-            </div>
-            <div>
-              <h3 className="text-lg font-bold mb-6">Legal</h3>
-              <ul className="space-y-4">
-                <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Privacy Policy</a></li>
-                <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Terms of Service</a></li>
-                <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Cookie Policy</a></li>
-                <li><a href="#" className="text-gray-400 hover:text-white transition-colors">GDPR Compliance</a></li>
-                <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Security</a></li>
-              </ul>
-            </div>
-          </div>
-          <div className="border-t border-gray-800 pt-8">
-            <div className="flex flex-col md:flex-row justify-between items-center">
-              <p className="text-gray-400 text-sm mb-4 md:mb-0">
-                © {new Date().getFullYear()} OK Technology, Inc. All rights reserved.
-              </p>
-              <div className="flex items-center space-x-4">
-                <a href="#" className="text-gray-400 hover:text-white transition-colors text-sm">
-                  Privacy Policy
-                </a>
-                <span className="text-gray-600">•</span>
-                <a href="#" className="text-gray-400 hover:text-white transition-colors text-sm">
-                  Terms of Service
-                </a>
-                <span className="text-gray-600">•</span>
-                <a href="#" className="text-gray-400 hover:text-white transition-colors text-sm">
-                  Sitemap
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </footer>
+     
     </div>
   );
 };

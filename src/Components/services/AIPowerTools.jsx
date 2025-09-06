@@ -10,6 +10,7 @@ import {
   Terminal, 
   Monitor
 } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const AIPoweredTools = () => {
   return (
@@ -29,17 +30,17 @@ const AIPoweredTools = () => {
                 Harness the power of artificial intelligence to drive innovation, efficiency, and growth.
               </p>
               <div className="flex flex-wrap gap-4">
-                <button className="bg-white text-indigo-700 hover:bg-opacity-90 px-6 py-3 rounded-lg font-medium transition duration-300 shadow-lg">
+                {/* <button className="bg-white text-indigo-700 hover:bg-opacity-90 px-6 py-3 rounded-lg font-medium transition duration-300 shadow-lg">
                   Get a Quote
-                </button>
+                </button> */}
                 <button className="bg-transparent border-2 border-white hover:bg-white hover:bg-opacity-10 px-6 py-3 rounded-lg font-medium transition duration-300">
-                  Contact Us
+                  <Link to="/contact">Contact Us</Link>
                 </button>
               </div>
             </div>
             <div className="md:w-1/2">
               <div className="bg-white bg-opacity-10 p-4 rounded-xl shadow-2xl">
-                <img src="/api/placeholder/600/450" alt="AI-Powered Tools" className="rounded-lg w-full" />
+                <img src="https://i.pinimg.com/736x/d5/10/45/d5104528f94f6f456da4356c952872a6.jpg" alt="AI-Powered Tools" className="rounded-lg w-full" />
               </div>
             </div>
           </div>
@@ -267,7 +268,7 @@ const AIPoweredTools = () => {
                 challenge: "Personalize customer experiences at scale",
                 solution: "AI-driven recommendation engine integrated with e-commerce platform",
                 result: "35% increase in conversion rates, 20% boost in customer retention",
-                image: "/api/placeholder/600/400"
+                image: "https://i.pinimg.com/1200x/31/bb/15/31bb15f93ed04057c5755e2f44cbecf0.jpg"
               },
               {
                 title: "Healthcare",
@@ -275,7 +276,7 @@ const AIPoweredTools = () => {
                 challenge: "Predict patient outcomes to optimize care delivery",
                 solution: "AI-powered predictive analytics for patient risk assessment",
                 result: "25% reduction in readmissions, 15% improvement in care efficiency",
-                image: "/api/placeholder/600/400"
+                image: "https://i.pinimg.com/736x/8e/f7/a8/8ef7a8ed85a2288cc22a2f38c1439201.jpg"
               }
             ].map((study, index) => (
               <div key={index} className="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow group">
@@ -323,12 +324,12 @@ const AIPoweredTools = () => {
               </div>
             ))}
           </div>
-          <div className="flex justify-center mt-12">
+          {/* <div className="flex justify-center mt-12">
             <button className="flex items-center gap-2 bg-indigo-600 hover:bg-indigo-700 text-white py-3 px-6 rounded-lg transition-colors shadow-md">
               View All Case Studies
               <ArrowRight className="h-5 w-5" />
             </button>
-          </div>
+          </div> */}
         </div>
       </section>
 
@@ -375,7 +376,7 @@ const AIPoweredTools = () => {
                 </div>
                 <p className="text-gray-600 mb-8 italic">"{testimonial.quote}"</p>
                 <div className="flex items-center">
-                  <img src={testimonial.image} alt={testimonial.author} className="w-12 h-12 rounded-full mr-4" />
+                  {/* <img src={testimonial.image} alt={testimonial.author} className="w-12 h-12 rounded-full mr-4" /> */}
                   <div>
                     <h4 className="font-bold text-gray-800">{testimonial.author}</h4>
                     <p className="text-sm text-gray-500">{testimonial.position}</p>
@@ -399,7 +400,7 @@ const AIPoweredTools = () => {
             </div>
             <div>
               <button className="bg-white text-indigo-700 hover:bg-opacity-90 px-8 py-4 rounded-lg font-medium transition duration-300 shadow-lg flex items-center gap-2">
-                Schedule a Consultation
+                <Link to="/contact">Schedule a Consultation</Link>
                 <ArrowRight className="h-5 w-5" />
               </button>
             </div>
@@ -408,7 +409,7 @@ const AIPoweredTools = () => {
       </section>
 
       {/* Footer */}
-      
+{/*       
       <footer className="bg-gray-900 text-white pt-20 pb-10 px-6">
         <div className="container mx-auto max-w-6xl">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
@@ -493,7 +494,7 @@ const AIPoweredTools = () => {
             </div>
           </div>
         </div>
-      </footer>
+      </footer> */}
     </div>
   );
 };

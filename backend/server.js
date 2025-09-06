@@ -21,6 +21,12 @@ app.use(helmet());
 app.use(cors());
 // app.use(xss());
 app.use(hpp());
+// Rate limiting
+const limiter = rateLimit({
+  windowMs: 15 * 60 * 1000, // 15 minutes
+  max: 50 // limit each IP to 50 requests per windowMs
+});
+app.use('/api/', limiter);
 
 //rate limiting
 app.use(apiLimiter);

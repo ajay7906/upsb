@@ -1,7 +1,20 @@
-import React from 'react';
+  
+
+import React, { useState } from 'react';
 import { Rocket, Users, Zap, Globe, HeartHandshake, GraduationCap, Briefcase, Clock, DollarSign, Palette } from 'lucide-react';
+import * as XLSX from 'xlsx';
 
 const CareerPage = () => {
+  const [formData, setFormData] = useState({
+    jobId: '',
+    fullName: '',
+    email: '',
+    phone: '',
+    resume: null,
+    coverLetter: ''
+  });
+  const [showForm, setShowForm] = useState(null);
+
   const jobOpenings = [
     {
       id: 1,
@@ -45,6 +58,51 @@ const CareerPage = () => {
     { icon: <Clock className="w-6 h-6" />, title: "Flex Hours", description: "Tailored work schedule" },
     { icon: <DollarSign className="w-6 h-6" />, title: "Competitive Salary", description: "Top 10% market rates" }
   ];
+
+  const handleInputChange = (e) => {
+    const { name, value, files } = e.target;
+    setFormData({
+      ...formData,
+      [name]: files ? files[0] : value
+    });
+  };
+
+  const handleSubmit = (e, jobId, jobTitle) => {
+    e.preventDefault();
+    const data = [{
+      Job_ID: jobId,
+      Job_Title: jobTitle,
+      Full_Name: formData.fullName,
+      Email: formData.email,
+      Phone: formData.phone,
+      Resume_File_Name: formData.resume ? formData.resume.name : '',
+      Cover_Letter: formData.coverLetter,
+      Submission_Date: new Date().toISOString()
+    }];
+
+    const ws = XLSX.utils.json_to_sheet(data);
+    const wb = XLSX.utils.book_new();
+    XLSX.utils.book_append_sheet(wb, ws, "Applications");
+    
+    // Generate Excel file and trigger download
+    XLSX.writeFile(wb, `Application_${jobId}_${formData.fullName.replace(/\s/g, '_')}.xlsx`);
+
+    // Reset form and close
+    setFormData({
+      jobId: '',
+      fullName: '',
+      email: '',
+      phone: '',
+      resume: null,
+      coverLetter: ''
+    });
+    setShowForm(null);
+  };
+
+  const toggleForm = (jobId) => {
+    setShowForm(showForm === jobId ? null : jobId);
+    setFormData({ ...formData, jobId });
+  };
 
   return (
     <div className="min-h-screen bg-white">
@@ -149,12 +207,89 @@ const CareerPage = () => {
                     {job.experience} experience
                   </div>
                 </div>
-                <a href="#" className="inline-flex items-center text-blue-600 font-semibold hover:text-blue-800">
+                <button 
+                  onClick={() => toggleForm(job.id)}
+                  className="inline-flex items-center text-blue-600 font-semibold hover:text-blue-800"
+                >
                   Apply Now
                   <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                   </svg>
-                </a>
+                </button>
+
+                {showForm === job.id && (
+                  <div className="mt-6 p-6 bg-gray-50 rounded-lg">
+                    <h4 className="text-lg font-semibold mb-4">Apply for {job.title}</h4>
+                    <div className="space-y-4">
+                      <div>
+                        <label className="block text-sm font-medium text-gray-700">Full Name</label>
+                        <input
+                          type="text"
+                          name="fullName"
+                          value={formData.fullName}
+                          onChange={handleInputChange}
+                          className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50"
+                          required
+                        />
+                      </div>
+                      <div>
+                        <label className="block text-sm font-medium text-gray-700">Email</label>
+                        <input
+                          type="email"
+                          name="email"
+                          value={formData.email}
+                          onChange={handleInputChange}
+                          className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50"
+                          required
+                        />
+                      </div>
+                      <div>
+                        <label className="block text-sm font-medium text-gray-700">Phone</label>
+                        <input
+                          type="tel"
+                          name="phone"
+                          value={formData.phone}
+                          onChange={handleInputChange}
+                          className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50"
+                        />
+                      </div>
+                      <div>
+                        <label className="block text-sm font-medium text-gray-700">Resume</label>
+                        <input
+                          type="file"
+                          name="resume"
+                          accept=".pdf,.doc,.docx"
+                          onChange={handleInputChange}
+                          className="mt-1 block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-md file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100"
+                        />
+                      </div>
+                      <div>
+                        <label className="block text-sm font-medium text-gray-700">Cover Letter</label>
+                        <textarea
+                          name="coverLetter"
+                          value={formData.coverLetter}
+                          onChange={handleInputChange}
+                          rows="4"
+                          className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50"
+                        ></textarea>
+                      </div>
+                      <div className="flex justify-end gap-4">
+                        <button
+                          onClick={() => setShowForm(null)}
+                          className="px-4 py-2 text-gray-600 font-semibold rounded-md hover:bg-gray-200"
+                        >
+                          Cancel
+                        </button>
+                        <button
+                          onClick={(e) => handleSubmit(e, job.id, job.title)}
+                          className="px-4 py-2 bg-blue-600 text-white font-semibold rounded-md hover:bg-blue-700"
+                        >
+                          Submit Application
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                )}
               </div>
             ))}
           </div>
@@ -198,15 +333,92 @@ const CareerPage = () => {
             Send us your resume and tell us how you can contribute.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a href="#" className="inline-flex items-center px-8 py-3 bg-white text-blue-600 rounded-lg font-bold hover:bg-blue-50 transition-all">
+            <button 
+              onClick={() => toggleForm('general')}
+              className="inline-flex items-center px-8 py-3 bg-white text-blue-600 rounded-lg font-bold hover:bg-blue-50 transition-all"
+            >
               Submit Application
               <Briefcase className="w-5 h-5 ml-2" />
-            </a>
-            <a href="#" className="inline-flex items-center px-8 py-3 border border-white text-white rounded-lg hover:bg-white/10 transition-all">
+            </button>
+            {/* <a href="#" className="inline-flex items-center px-8 py-3 border border-white text-white rounded-lg hover:bg-white/10 transition-all">
               Contact HR Team
               <HeartHandshake className="w-5 h-5 ml-2" />
-            </a>
+            </a> */}
           </div>
+
+          {showForm === 'general' && (
+            <div className="mt-8 p-6 bg-white rounded-lg text-gray-900">
+              <h4 className="text-lg font-semibold mb-4">General Application</h4>
+              <div className="space-y-4">
+                <div>
+                  <label className="block text-sm font-medium text-gray-700">Full Name</label>
+                  <input
+                    type="text"
+                    name="fullName"
+                    value={formData.fullName}
+                    onChange={handleInputChange}
+                    className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50"
+                    required
+                  />
+                </div>
+                <div>
+                  <label className="block text-sm font-medium text-gray-700">Email</label>
+                  <input
+                    type="email"
+                    name="email"
+                    value={formData.email}
+                    onChange={handleInputChange}
+                    className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50"
+                    required
+                  />
+                </div>
+                <div>
+                  <label className="block text-sm font-medium text-gray-700">Phone</label>
+                  <input
+                    type="tel"
+                    name="phone"
+                    value={formData.phone}
+                    onChange={handleInputChange}
+                    className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50"
+                  />
+                </div>
+                <div>
+                  <label className="block text-sm font-medium text-gray-700">Resume</label>
+                  <input
+                    type="file"
+                    name="resume"
+                    accept=".pdf,.doc,.docx"
+                    onChange={handleInputChange}
+                    className="mt-1 block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-md file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100"
+                  />
+                </div>
+                <div>
+                  <label className="block text-sm font-medium text-gray-700">Cover Letter</label>
+                  <textarea
+                    name="coverLetter"
+                    value={formData.coverLetter}
+                    onChange={handleInputChange}
+                    rows="4"
+                    className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50"
+                  ></textarea>
+                </div>
+                <div className="flex justify-end gap-4">
+                  <button
+                    onClick={() => setShowForm(null)}
+                    className="px-4 py-2 text-gray-600 font-semibold rounded-md hover:bg-gray-200"
+                  >
+                    Cancel
+                  </button>
+                  <button
+                    onClick={(e) => handleSubmit(e, 'general', 'General Application')}
+                    className="px-4 py-2 bg-blue-600 text-white font-semibold rounded-md hover:bg-blue-700"
+                  >
+                    Submit Application
+                  </button>
+                </div>
+              </div>
+            </div>
+          )}
         </div>
       </section>
     </div>

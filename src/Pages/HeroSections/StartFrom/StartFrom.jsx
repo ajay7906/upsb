@@ -1,6 +1,7 @@
 import React from 'react';
 import { ArrowRight } from 'lucide-react';
 import sale from "./images/Sale1.png";
+import { Link } from 'react-router-dom';
 
 const BusinessLandingPage = () => {
   return (
@@ -29,7 +30,7 @@ const BusinessLandingPage = () => {
             </p>
             <div>
               <button className="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-3 px-6 rounded-md transition duration-300 flex items-center">
-                Start a Project
+                <Link to="/contact">Start a Project</Link>
                 <ArrowRight className="ml-2 h-5 w-5" />
               </button>
             </div>
