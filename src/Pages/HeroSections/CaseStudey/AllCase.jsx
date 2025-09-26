@@ -3,7 +3,7 @@ import lev1 from "./images/APPCase.jpeg";
 import lev2 from "./images/DashboardAnalytics.jpeg";
 import lev3 from "./images/E-commerce.jpeg";
 import lev4 from "./images/HealthTracking.jpeg";
-import lev5 from "./images/financialServices.jpeg";
+import lev5 from "./images/FinancialServices.jpeg";
 import lev6 from "./images/SchoolERP.jpeg";
 import lev7 from "./images/Hall.jpeg";
 
