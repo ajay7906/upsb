@@ -16,13 +16,13 @@ import CRMERPSolutions from './Components/services/CRMERPSolutions';
 import SocialMediaSolutions from './Components/services/SocialMediaSolutions';
 import CloudSolutions from './Components/services/CloudSolutions';
 import AIPoweredTools from './Components/services/AIPowerTools';
-
+import ScrollToTop from './Components/scroll/ScrollToTop';
 function App() {
   return (
     <>
      <Router>
     <AuthProvider>
-     
+    <ScrollToTop/>
         <Navbar/>
         <Routes>
         <Route path="/" element={<Hero />} />
